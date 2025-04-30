@@ -1,23 +1,24 @@
-/* typography
+/* typography*/
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Variable.woff2") format("woff2");
+  font-weight: 100 900; /* Range variable */
+  font-style: normal;
+  font-display: swap; /*OPTIMIZATION*/
+}
 
-.ibm-plex-mono-regular {
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 400;
+@font-face {
+  font-family: "Clash-Display";
+  src: url("../assets/fonts/ClashDisplay-Variable.woff2") format("woff2");
+  font-weight: 200 700; /* Range variable */
   font-style: normal;
+  font-display: swap; /*OPTIMIZATION*/
 }
-  
-.poppins-thin {
-  font-family: "Poppins", sans-serif;
-  font-weight: 100;
-  font-style: normal;
-}
-*/
 
 /*Aspects default*/
 :root {
   --primary-font: "Poppins", sans-serif;
-  --second-font: "Unbounded", sans-serif;
-  --alternative-font: "IBM Plex Mono", monospace;
+  --second-font: "Clash-Display", sans-serif;
   --color-dark: #121212;
   --color-light: #ffffff;
   --color-primary: #00d1ff;
@@ -37,15 +38,16 @@ html {
 }
 
 header {
-  padding: 10px 0;
-  background-color: var(--color-secondary);
+  padding: 10px 10px;
+  background-color:var(--color-secondary);
+  position: relative;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .logo-container {
@@ -58,26 +60,26 @@ nav {
   color: var(--color-light);
   font-family: var(--primary-font);
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .logo {
   margin-right: auto;
 }
 
-nav ul {
+.nav-menu {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
+.nav-menu li {
   margin-left: 20px;
   margin-right: 20px;
 }
 
-nav ul li a {
+.nav-menu li a {
   text-decoration: none;
   color: var(--color-light);
   font-size: 1.4rem;
@@ -85,15 +87,41 @@ nav ul li a {
   font-weight: 300;
 }
 
-nav ul li a:hover {
+.nav-menu li a:hover {
   color: var(--color-primary);
   font-size: 1.6rem;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+/* default hidden */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
+  z-index: 10000;
+}
+
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background-color: var(--color-light);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
 }
 
 body {
   display: flex;
-  background-color: var(--color-dark);
   min-height: 100vh;
   flex-direction: column;
   margin: 0;
@@ -108,23 +136,26 @@ main {
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin: 5px auto;
+  margin: 0 auto;
   padding: 10px;
+  background: var(--color-dark);
+  background: linear-gradient(170deg,rgb(27, 27, 27) 0%, rgba(0, 0, 0, 1) 100%);
 }
 
+/* bento all staff here comes my projects */
 .bento-container {
   padding: 20px;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-auto-rows: minmax(auto, 200px);
   grid-template-columns: repeat(5, 1fr);
   gap: 1em;
-  grid-template-areas: 
-  "container1 container1 container1 container2 container6"
-  "container1 container1 container1 container2 container6" 
-  "container5 container5 container4 container4 container3" 
-  "container7 container7 container4 container4 container8";
+  grid-template-areas:
+    "container1 container1 container1 container2 container6"
+    "container1 container1 container1 container2 container6"
+    "container5 container5 container4 container4 container3"
+    "container7 container7 container4 container4 container8";
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -152,6 +183,10 @@ main {
   background-repeat: no-repeat;
 }
 
+.bento-container .container:hover {
+  fill: rgba(0, 0, 0, 0.3);
+}
+
 .content-section {
   display: flex;
   position: relative;
@@ -162,9 +197,10 @@ main {
 
 .intro-content {
   padding: 4rem;
+  padding-right: 3rem;
   z-index: 3;
   position: relative;
-  max-width: 60%;
+  max-width: 65%;
   margin-right: auto;
   transform: translateY(-12%);
   -webkit-transform: translateY(-12%);
@@ -175,10 +211,11 @@ main {
 
 .intro-content h1 {
   font-family: var(--second-font);
-  font-size: 3.5rem;
+  font-size: 4rem;
   color: var(--color-light);
   margin-bottom: 5px;
   line-height: 1.2;
+  font-weight: 600;
 }
 
 .intro-content h1 span {
@@ -186,7 +223,7 @@ main {
 }
 
 .subtitle {
-  font-family: var(--alternative-font);
+  font-family: var(--primary-font);
   font-size: 1.8rem;
   color: var(--color-primary);
   margin-bottom: 20px;
@@ -273,6 +310,43 @@ main {
   transform-origin: center;
   /*icon size*/
 }
+/* Heres ends bento and home container */
+
+/* Skills section */
+
+.About-me-section{
+width: 100%;
+height: 720px;
+position: relative;
+overflow: hidden;
+}
+
+.About-me-section::before {
+  content: "";
+  background-image: url("../assets/images/background.webp");
+  background-size: cover; /* viewport all */
+  background-position: center; /* Center image */
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.About-me-section::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.6); /* black background over image */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* over image but before content*/
+}
 
 /* contact bar allover*/
 .contact {
@@ -291,10 +365,10 @@ main {
   width: fit-content;
   min-width: 250px;
   background-color: var(--color-light);
-  padding: 15px 30px;
+  padding: 10px 30px;
   display: flex;
   justify-content: center;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 20px 20px 0 0;
   max-width: 90%;
 }
@@ -338,17 +412,23 @@ main {
 footer {
   position: relative;
   z-index: 999;
-  color: var(--color-dark);
+  color: var(--color-light);
   background-color: var(--color-primary);
-  height: 100px;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0px;
   font-size: 1.2rem;
-  font-family: var(--primary-font);
-  font-weight: 300;
+  font-family: var(--second-font);
+  font-weight: 200;
+  gap: 10px;
+}
+
+footer .big-text {
+  font-family: var(--second-font);
+  font-size: 12rem;
 }
 
 /* Responsive design */
@@ -379,6 +459,99 @@ footer {
 
     grid-auto-rows: minmax(auto, 100px);
   }
+}
+
+@media (max-width: 660px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 0 0 15px 0;
+    width: 250px;
+    background-color: rgba(42, 44, 43, 0.85);
+    height: calc(100vh - 70px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    clip-path: circle(0px at 0% 0%);
+    -webkit-clip-path: circle(0px at 0% 0%);
+    transition: all 0.5s ease-out;
+    pointer-events: none;
+    z-index: 9999;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transform-origin: top left;
+    overflow-y: auto  ;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -webkit-border-radius: 0 0 15px 0;
+    -moz-border-radius: 0 0 15px 0;
+    -ms-border-radius: 0 0 15px 0;
+    -o-border-radius: 0 0 15px 0;
+}
+
+  .nav-menu.active {
+    clip-path: circle(1000px at 90% -10%);
+    -webkit-clip-path: circle(1000px at 90% -10%);
+    pointer-events: all;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-menu li {
+    margin: 15px 0;
+    width: 100%;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding-left: 30px;
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu li a:hover {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    padding-left: 45px;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+    -webkit-transform: translateY(6px) rotate(45deg);
+    -moz-transform: translateY(6px) rotate(45deg);
+    -ms-transform: translateY(6px) rotate(45deg);
+    -o-transform: translateY(6px) rotate(45deg);
+}
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+    -webkit-transform: translateY(-6px) rotate(-45deg);
+    -moz-transform: translateY(-6px) rotate(-45deg);
+    -ms-transform: translateY(-6px) rotate(-45deg);
+    -o-transform: translateY(-6px) rotate(-45deg);
+}
+
+  .name {
+    font-size: 1.7rem;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+  }
+
 }
 
 @media (max-width: 576px) {
