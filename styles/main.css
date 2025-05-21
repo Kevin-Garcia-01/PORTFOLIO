@@ -35,6 +35,7 @@
 
 html {
   font-size: 62.5%;
+   scroll-behavior: smooth; /* Scroll smooth for website */
 }
 
 header {
@@ -250,7 +251,7 @@ main {
   color: var(--color-primary);
   margin-bottom: 20px;
   font-weight: 400;
-   text-align: left;
+  text-align: left;
   margin-left: 10px;
 }
 
@@ -662,44 +663,42 @@ footer a:hover {
     display: none !important; /* image deleted */
   }
 
-    .content-section {
+  .content-section {
     min-height: auto;
     padding: 2rem 0;
-    justify-content: center !important; 
+    justify-content: center !important;
     align-items: center !important;
     text-align: center;
   }
-
 
   .intro-content {
     max-width: 90% !important;
     margin: 0 auto !important;
     padding: 2rem !important;
     text-align: center;
-    transform: none !important;;
-    -webkit-transform: none ;
-    -moz-transform: none ;
-    -ms-transform: none ;
-    -o-transform: none ;
-}
+    transform: none !important;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+  }
 
-
-.intro-content h1,
+  .intro-content h1,
   .intro-content .subtitle,
   .intro-content .description {
     text-align: center !important;
     margin-left: 0 !important;
   }
 
-   .intro-content h1 {
+  .intro-content h1 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
     line-height: 1.2;
   }
-  
+
   .subtitle {
     font-size: clamp(1.3rem, 3.5vw, 1.8rem);
   }
-  
+
   .description {
     font-size: clamp(1.1rem, 2.8vw, 1.4rem);
   }
@@ -722,11 +721,23 @@ footer a:hover {
   [style*="grid-area: container1"] {
     min-height: 300px;
   }
+  .About-me-section {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .skills-frontend {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 706px) {
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    margin: 0 auto;
   }
 }
 
@@ -844,7 +855,7 @@ footer a:hover {
     justify-content: center;
   }
 
-   .content-section {
+  .content-section {
     min-height: 350px;
     padding: 1rem;
   }
@@ -854,6 +865,39 @@ footer a:hover {
     transform: none !important;
   }
 
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  footer .social-media,
+  footer .navigation-down,
+  footer .location,
+  footer .contact-info {
+    width: 100%;
+    padding: 10px 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer .logo-space {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  footer .logo-space .logo-container {
+    justify-content: center;
+    text-align: left;
+  }
+
+  footer .logo-space .name-logo {
+    align-items: flex-start;
+  }
+
+  footer .copy {
+    grid-column: 1;
+  }
 }
 
 @media (max-width: 480px) {
