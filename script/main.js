@@ -27,7 +27,9 @@
         } else {
             console.error('Required elements not found:', { footer, contactBar });
         }
-    }, 100); // Small delay to ensure DOM is fully ready
+    }, 100); 
+    // Small delay to ensure DOM is fully ready
+    
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -77,3 +79,4 @@ document.getElementById('download-cv').addEventListener('click', function() {
   link.click();
   document.body.removeChild(link);
 });
+
