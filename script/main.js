@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById('download-cv').addEventListener('click', function() {
   // Pdf file path
-  const pdfPath = '/assets/Kevin-Garcia-Frontend-CV.pdf';
+  const pdfPath = 'https://drive.google.com/drive/folders/1EamK-StU84WViKKSqgUclJjVcZhEC5Nw?usp=drive_link';
   
   // Temporary link
   const link = document.createElement('a');
