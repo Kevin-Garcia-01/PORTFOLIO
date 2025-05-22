@@ -35,7 +35,7 @@
 
 html {
   font-size: 62.5%;
-   scroll-behavior: smooth; /* Scroll smooth for website */
+  scroll-behavior: smooth; /* Scroll smooth for website */
 }
 
 header {
@@ -337,10 +337,13 @@ main {
 
 /* Heres ends bento and home container */
 
+/* About me section */
 .About-me-section {
   display: flex;
   justify-content: space-around;
 }
+
+/*experience section*/
 .experience {
   padding: 40px;
   font-family: var(--primary-font);
@@ -657,9 +660,20 @@ footer a:hover {
   font-weight: 500;
 }
 
-/* Responsive design */
-@media (max-width: 854px) {
-  .image-section {
+/* ----------------------
+----------------------
+Responsive design
+-----------------------
+----------------------- */
+@media (max-width: 1100px){
+    .About-me-section {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 907px) {
+  .content-section .image-section {
     display: none !important; /* image deleted */
   }
 
@@ -721,10 +735,7 @@ footer a:hover {
   [style*="grid-area: container1"] {
     min-height: 300px;
   }
-  .About-me-section {
-    display: grid !important;
-    grid-template-columns: repeat(1, 1fr);
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -733,12 +744,14 @@ footer a:hover {
   }
 }
 
-@media (max-width: 706px) {
+@media (max-width: 720px) {
   footer {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+    gap: 20px;
+    padding: 20px;
   }
+  
 }
 
 @media (max-width: 660px) {
@@ -827,6 +840,55 @@ footer a:hover {
     position: relative;
     z-index: 1;
   }
+
+  .About-me-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .timeline {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  /* line on left side */
+  .timeline::before {
+    left: 20px !important;
+    transform: none !important;
+  }
+
+  /* Items of experience */
+  .timeline-item {
+    width: 100% !important;
+    left: 0 !important;
+    padding: 20px 0 20px 40px !important;
+    text-align: left !important;
+  }
+
+  /* points over the line */
+  .timeline-item::after {
+    left: -5px !important;
+    right: auto !important;
+  }
+
+  /* put on left */
+  .timeline-item.right,
+  .timeline-item.left {
+    left: 0 !important;
+    text-align: left !important;
+  }
+
+  /* content of experience */
+  .timeline-content {
+    margin-left: 30px;
+    font-size: 1.2rem;
+    padding: 15px !important;
+  }
+
+  .timeline-date {
+    font-size: 1.3rem;
+  }
+
 }
 
 @media (max-width: 576px) {
@@ -873,7 +935,8 @@ footer a:hover {
 
   footer .social-media,
   footer .navigation-down,
-  footer .location,
+  footer .description,
+  footer .copy,
   footer .contact-info {
     width: 100%;
     padding: 10px 20px;
