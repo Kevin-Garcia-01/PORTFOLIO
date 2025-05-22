@@ -62,3 +62,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.getElementById('download-cv').addEventListener('click', function() {
+  // Pdf file path
+  const pdfPath = '/assets/Kevin-Garcia-Frontend-CV.pdf';
+  
+  // Temporary link
+  const link = document.createElement('a');
+  link.href = pdfPath;
+  link.download = 'Kevin-Garcia-Frontend-CV'; // File NAme when downloaded
+  
+  // click simulation
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
