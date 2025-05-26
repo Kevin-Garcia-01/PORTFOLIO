@@ -80,3 +80,13 @@ document.getElementById('download-cv').addEventListener('click', function() {
   document.body.removeChild(link);
 });
 
+// SCROLL ANIMATION
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('autoShow-active');
+    }
+  });
+});
+
+document.querySelectorAll('.autoShow').forEach(el => observer.observe(el));

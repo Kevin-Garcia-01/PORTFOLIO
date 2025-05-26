@@ -415,6 +415,17 @@ main {
   padding: 20px;
   color: var(--color-light);
   font-size: 1.3rem;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ;
+  -moz-transition: all 0.3s ;
+  -ms-transition: all 0.3s ;
+  -o-transition: all 0.3s ;
+}
+
+.timeline-content:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+scale: 1.2;
 }
 
 /* Arrows style */
@@ -424,6 +435,7 @@ main {
   margin-bottom: 5px;
   font-size: 1.5rem;
 }
+
 
 /* Skills section */
 section .skills-section {
@@ -524,9 +536,9 @@ h2 {
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   -ms-border-radius: 25px;
@@ -660,13 +672,34 @@ footer a:hover {
   font-weight: 500;
 }
 
-/* ----------------------
-----------------------
-Responsive design
------------------------
------------------------ */
-@media (max-width: 1100px){
-    .About-me-section {
+/* ---------------
+------ANIMATIONS-------
+------------------ */
+.autoShow {
+  opacity: 0;
+  transform: translateY(100px) scale(0.3);
+  transition: 0.8s all ease-in-out;
+  -webkit-transform: translateY(100px) scale(0.3);
+  -moz-transform: translateY(100px) scale(0.3);
+  -ms-transform: translateY(100px) scale(0.3);
+  -o-transform: translateY(100px) scale(0.3);
+  -webkit-transition: 0.8s all ease-in-out;
+  -moz-transition: 0.8s all ease-in-out;
+  -ms-transition: 0.8s all ease-in-out;
+  -o-transition: 0.8s all ease-in-out;
+}
+
+.autoShow-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/*------------------------------------
+-----------Responsive design----------
+--------------------------------------*/
+
+@media (max-width: 1100px) {
+  .About-me-section {
     display: grid !important;
     grid-template-columns: repeat(1, 1fr);
   }
@@ -735,7 +768,6 @@ Responsive design
   [style*="grid-area: container1"] {
     min-height: 300px;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -751,7 +783,6 @@ Responsive design
     gap: 20px;
     padding: 20px;
   }
-  
 }
 
 @media (max-width: 660px) {
@@ -888,7 +919,6 @@ Responsive design
   .timeline-date {
     font-size: 1.3rem;
   }
-
 }
 
 @media (max-width: 576px) {
